@@ -5,7 +5,6 @@ function App() {
   const [Count, setCount] = useState("");
   const [expression, setExpression] = useState("");
 
-
   const isOperator = (symbol) => {
     return /[*/+-]/.test(symbol);
   };
@@ -14,7 +13,7 @@ function App() {
     if (symbol === "clear") {
       setCount("");
       setExpression("0");
-    }  else if (symbol === "percent") {
+    } else if (symbol === "percent") {
       if (Count === "") return;
       setCount((parseFloat(Count) / 100).toString());
     } else if (isOperator(symbol)) {
@@ -29,7 +28,6 @@ function App() {
       // split by operators and get last number
       const lastNumber = expression.split(/[-+/*]/g).pop();
       if (!lastNumber) return;
-      console.log("lastNumber :>> ", lastNumber);
       // if last number already has a decimal, don't add another
       if (lastNumber?.includes(".")) return;
       setExpression(expression + symbol);
@@ -44,7 +42,8 @@ function App() {
 
   const calculate = () => {
     // if last char is an operator, do nothing
-    if (isOperator(expression.trim().charAt(expression.trim().length - 1))) return;
+    if (isOperator(expression.trim().charAt(expression.trim().length - 1)))
+      return;
     // clean the expression so that two operators in a row uses the last operator
     // 5 * - + 5 = 10
     const parts = expression.trim().split(" ");
@@ -67,9 +66,9 @@ function App() {
     }
     const newExpression = newParts.join(" ");
     if (isOperator(newExpression.charAt(0))) {
-      setCount(eval(Count + newExpression) );
+      setCount(eval(Count + newExpression));
     } else {
-      setCount(eval(newExpression) );
+      setCount(eval(newExpression));
     }
     setExpression("");
   };
@@ -89,13 +88,8 @@ function App() {
           >
             Clear
           </button>
-         
-        
-          <button
-            id="divide"
-            onClick={() => buttonPress("/")}
-            className="yellow"
-          >
+
+          <button id="divide" onClick={() => buttonPress("/")} className="blue">
             /
           </button>
           <button
@@ -122,7 +116,7 @@ function App() {
           <button
             id="multiply"
             onClick={() => buttonPress("*")}
-            className="yellow"
+            className="blue"
           >
             *
           </button>
@@ -150,7 +144,7 @@ function App() {
           <button
             id="subtract"
             onClick={() => buttonPress("-")}
-            className="yellow"
+            className="blue"
           >
             -
           </button>
@@ -175,7 +169,7 @@ function App() {
           >
             3
           </button>
-          <button id="add" onClick={() => buttonPress("+")} className="yellow">
+          <button id="add" onClick={() => buttonPress("+")} className="blue">
             +
           </button>
           <button
@@ -192,11 +186,7 @@ function App() {
           >
             .
           </button>
-          <button
-            id="equals"
-            onClick={() => buttonPress("=")}
-            className="yellow"
-          >
+          <button id="equals" onClick={() => buttonPress("=")} className="blue">
             =
           </button>
         </div>

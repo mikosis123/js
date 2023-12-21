@@ -3,7 +3,7 @@
   --light-gray: #f0f0f0;
   --dark-gray: #3b3232;
   --black: #1e1e1e;
-  --yellow: #090b74;
+  --blue: #090b74;
 }
 
 .container {
@@ -42,8 +42,8 @@
   color: white;
 }
 
-.yellow {
-  background-color: var(--yellow);
+.blue {
+  background-color: var(--blue);
   color: white;
 }
 
@@ -85,7 +85,7 @@ button:active {
   grid-area: clear;
   width: 300px;
   font-weight: bolder;
-  font-size:xx-large;
+  font-size: xx-large;
 }
 #divide {
   grid-area: divide;
